@@ -27,3 +27,7 @@ func _physics_process(delta) -> void:
 	rotate(deg2rad(turn_dir * turn_speed))
 	_velocity += Vector2(move_dir * move_speed * delta, 0).rotated(rotation)
 	_velocity = move_and_slide(_velocity) * move_damp
+
+
+func _on_IsGrounded_fall():
+	print("fell from world!")

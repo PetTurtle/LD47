@@ -65,6 +65,14 @@ attack1={
  ]
 }
 
+[layer_names]
+
+2d_render/layer_1="Entities"
+2d_physics/layer_1="Entity Collisions"
+2d_render/layer_2="Floor"
+2d_physics/layer_2="Bullets"
+2d_physics/layer_3="Floor"
+
 [rendering]
 
 environment/default_clear_color=Color( 0.180392, 0.796078, 0.898039, 1 )

@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Bullet/Bullet.gd"
 }, {
+"base": "RigidBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://Enemy/Enemy.gd"
+}, {
 "base": "Node2D",
 "class": "Turret",
 "language": "GDScript",
@@ -21,6 +26,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Bullet": "",
+"Enemy": "",
 "Turret": ""
 }
 
@@ -36,10 +42,10 @@ Globals="*res://Autoload/Globals.gd"
 
 [display]
 
-window/size/width=320
-window/size/height=180
-window/stretch/mode="2d"
-window/stretch/aspect="expand"
+window/size/width=640
+window/size/height=360
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 
@@ -80,10 +86,19 @@ attack2={
 2d_physics/layer_1="Entity Collisions"
 2d_render/layer_2="Floor"
 2d_physics/layer_2="Bullets"
+2d_render/layer_3="Foreground"
 2d_physics/layer_3="Floor"
 2d_physics/layer_4="Player"
+2d_physics/layer_5="Walls"
+
+[physics]
+
+2d/default_gravity=0
+2d/default_gravity_vector=Vector2( 0, 0 )
 
 [rendering]
 
+quality/2d/use_nvidia_rect_flicker_workaround=true
+quality/2d/use_pixel_snap=true
 environment/default_clear_color=Color( 0.180392, 0.796078, 0.898039, 1 )
 environment/default_environment="res://default_env.tres"

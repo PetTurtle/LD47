@@ -14,6 +14,6 @@ func _on_DeleteTimer_timeout():
 	queue_free()
 
 
-func _on_Bullet_body_shape_entered(body_id, body, body_shape, area_shape):
+func _on_Bullet_body_shape_entered(_body_id, _body, _body_shape, _area_shape):
 	Globals.destructible_tile_map.create_explosion(position, explosion_size)
 	queue_free()

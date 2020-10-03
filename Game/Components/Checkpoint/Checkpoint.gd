@@ -22,7 +22,7 @@ func _set_inactive() -> void:
 	animation_player.stop()
 
 
-func _on_Checkpoint_body_shape_entered(body_id, body, body_shape, area_shape):
+func _on_Checkpoint_body_shape_entered(_body_id, _body, _body_shape, _area_shape):
 	if visible:
 		_set_inactive()
 		next_checkpoint.set_active()

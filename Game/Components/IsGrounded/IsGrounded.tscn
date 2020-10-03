@@ -2,9 +2,5 @@
 
 [ext_resource path="res://Components/IsGrounded/IsGrounded.gd" type="Script" id=1]
 
-[node name="IsGrounded" type="Area2D"]
-collision_layer = 0
-collision_mask = 4
+[node name="IsGrounded" type="Node2D"]
 script = ExtResource( 1 )
-[connection signal="area_exited" from="." to="." method="_on_IsGrounded_area_exited"]
-[connection signal="body_exited" from="." to="." method="_on_IsGrounded_body_exited"]

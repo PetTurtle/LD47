@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cannonball.png-7d0c5857c60ce77643efa27a83078220.stex"
+path="res://.import/Parachute.png-468aebb21323d870ce4629c5e35b4a3d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bullet/Cannonball.png"
-dest_files=[ "res://.import/Cannonball.png-7d0c5857c60ce77643efa27a83078220.stex" ]
+source_file="res://Components/Parachute/Parachute.png"
+dest_files=[ "res://.import/Parachute.png-468aebb21323d870ce4629c5e35b4a3d.stex" ]
 
 [params]
 

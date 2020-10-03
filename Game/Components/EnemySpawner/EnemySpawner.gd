@@ -16,5 +16,5 @@ func _on_SpawnTimer_timeout():
 	var spawn_position = Globals.destructible_tile_map.get_open_position()
 	var parachute = parachute_prefab.instance()
 	Globals.level.add_child(parachute)
-	parachute.position = spawn_position
+	parachute.global_position = spawn_position
 	parachute.deploy(enemy_prefabs[rand_range(0, enemy_prefabs.size())])

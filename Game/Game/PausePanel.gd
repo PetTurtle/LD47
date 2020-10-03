@@ -1,16 +1,23 @@
 extends Panel
 
+onready var score_label: Label = $VBoxContainer/VBoxContainer/GridContainer/Score
+onready var time_label: Label = $VBoxContainer/VBoxContainer/GridContainer/TotalTime
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func _input(event):
+	if event.is_action_pressed("pause") and Globals.level.game_over == false:
+		get_tree().paused = !get_tree().paused
+		visible = get_tree().paused
+		
+		if visible:
+			score_label.set_text(String(Globals.level.total_score))
+			time_label.set_text(String(Globals.level.time_passed))
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _on_Return_pressed():
+	get_tree().paused = !get_tree().paused
+	visible = get_tree().paused
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_Exit_pressed():
+	get_tree().paused = false
+	Globals.level.exit()

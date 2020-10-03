@@ -20,7 +20,7 @@ func fire() -> void:
 		return
 	
 	var bullet = bullet_prefab.instance()
-	get_tree().root.add_child(bullet)
+	Globals.level.add_child(bullet)
 	bullet.rotation = global_rotation
 	bullet.position = to_global(shot_points[curr_shot_point_id].position)
 	curr_shot_point_id = (curr_shot_point_id + 1) % shot_points.size()

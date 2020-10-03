@@ -16,7 +16,7 @@ script = ExtResource( 4 )
 timer_label_path = NodePath("CanvasLayer/Timer/HBoxContainer/Timer")
 
 [node name="EnemySpawner" parent="." instance=ExtResource( 7 )]
-enemy_prefabs_paths = [ "res://EnemyPrefabs/SimpleTank/SimpleTank.tscn" ]
+enemy_prefabs_paths = [ "res://EnemyPrefabs/SimpleTank/SimpleTank.tscn", "res://EnemyPrefabs/Barrel/Barrel.tscn" ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -45,6 +45,7 @@ align = 1
 valign = 1
 
 [node name="LossPanel" type="Panel" parent="CanvasLayer"]
+pause_mode = 2
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -141,7 +142,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="CanvasLayer/LossPanel/VBoxContainer/HBoxContainer"]
+[node name="Replay" type="Button" parent="CanvasLayer/LossPanel/VBoxContainer/HBoxContainer"]
 margin_right = 129.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
@@ -153,7 +154,7 @@ custom_styles/normal = ExtResource( 8 )
 custom_fonts/font = ExtResource( 2 )
 text = "Replay"
 
-[node name="Button2" type="Button" parent="CanvasLayer/LossPanel/VBoxContainer/HBoxContainer"]
+[node name="Exit" type="Button" parent="CanvasLayer/LossPanel/VBoxContainer/HBoxContainer"]
 margin_left = 133.0
 margin_right = 263.0
 margin_bottom = 38.0
@@ -164,9 +165,10 @@ custom_styles/focus = ExtResource( 8 )
 custom_styles/disabled = ExtResource( 8 )
 custom_styles/normal = ExtResource( 8 )
 custom_fonts/font = ExtResource( 2 )
-text = "Back"
+text = "Exit"
 
 [node name="PausePanel" type="Panel" parent="CanvasLayer"]
+pause_mode = 2
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -263,7 +265,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="CanvasLayer/PausePanel/VBoxContainer/HBoxContainer"]
+[node name="Return" type="Button" parent="CanvasLayer/PausePanel/VBoxContainer/HBoxContainer"]
 margin_right = 129.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
@@ -275,7 +277,7 @@ custom_styles/normal = ExtResource( 8 )
 custom_fonts/font = ExtResource( 2 )
 text = "Return"
 
-[node name="Button2" type="Button" parent="CanvasLayer/PausePanel/VBoxContainer/HBoxContainer"]
+[node name="Exit" type="Button" parent="CanvasLayer/PausePanel/VBoxContainer/HBoxContainer"]
 margin_left = 133.0
 margin_right = 263.0
 margin_bottom = 38.0
@@ -286,8 +288,13 @@ custom_styles/focus = ExtResource( 8 )
 custom_styles/disabled = ExtResource( 8 )
 custom_styles/normal = ExtResource( 8 )
 custom_fonts/font = ExtResource( 2 )
-text = "Back"
+text = "Exit"
 
 [node name="CountDownTimer" type="Timer" parent="."]
 process_mode = 0
+[connection signal="visibility_changed" from="CanvasLayer/LossPanel" to="CanvasLayer/LossPanel" method="_on_LossPanel_visibility_changed"]
+[connection signal="pressed" from="CanvasLayer/LossPanel/VBoxContainer/HBoxContainer/Replay" to="CanvasLayer/LossPanel" method="_on_Replay_pressed"]
+[connection signal="pressed" from="CanvasLayer/LossPanel/VBoxContainer/HBoxContainer/Exit" to="CanvasLayer/LossPanel" method="_on_Exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/PausePanel/VBoxContainer/HBoxContainer/Return" to="CanvasLayer/PausePanel" method="_on_Return_pressed"]
+[connection signal="pressed" from="CanvasLayer/PausePanel/VBoxContainer/HBoxContainer/Exit" to="CanvasLayer/PausePanel" method="_on_Exit_pressed"]
 [connection signal="timeout" from="CountDownTimer" to="." method="_on_CountDownTimer_timeout"]

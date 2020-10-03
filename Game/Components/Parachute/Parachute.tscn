@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Components/Parachute/Parachute.gd" type="Script" id=1]
 [ext_resource path="res://Components/Sprite3D/Sprite3D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Components/Parachute/Parachute.png" type="Texture" id=3]
 [ext_resource path="res://Components/Parachute/LandZone.png" type="Texture" id=4]
 [ext_resource path="res://Components/Parachute/Crate.png" type="Texture" id=5]
+[ext_resource path="res://Enemy/Component/Pathfinder.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Landing"
@@ -141,4 +142,6 @@ texture = ExtResource( 5 )
 autoplay = "Landing"
 anims/Landing = SubResource( 1 )
 anims/Unloading = SubResource( 2 )
+
+[node name="Pathfinder" parent="." instance=ExtResource( 6 )]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

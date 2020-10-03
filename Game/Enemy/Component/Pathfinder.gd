@@ -39,12 +39,14 @@ func set_path(value : PoolVector2Array) -> void:
 	#var line = Line2D.new()
 	#get_tree().root.add_child(line)
 	#line.points = value
+	#line.width = 1
 	set_process(true)
 
 
 func _on_RepathTimer_timeout():
 	var target: Vector2 = destructible_tile_map.get_open_position()
-	set_path(destructible_tile_map.navigation.get_simple_path(get_parent().global_position, target))
+	set_path(destructible_tile_map.navigation.get_simple_path(get_parent().position, target))
+	repath_timer.start(2)
 
 
 func _on_Enemy_spawned():

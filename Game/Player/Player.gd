@@ -39,6 +39,7 @@ func _kill() -> void:
 	set_process_input(false)
 	set_physics_process(false)
 	
+	
 
 func _on_IsGrounded_fall():
 	_kill()
@@ -47,4 +48,4 @@ func _on_IsGrounded_fall():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Falling":
-		pass
+		Globals.level.end_game()

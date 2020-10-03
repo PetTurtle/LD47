@@ -10,6 +10,8 @@ onready var next_checkpoint = get_node(next_checkpoint_path)
 func _ready():
 	if start_checkpoint:
 		set_active()
+	else:
+		_set_inactive()
 
 
 func set_active() -> void:
@@ -25,4 +27,5 @@ func _set_inactive() -> void:
 func _on_Checkpoint_body_shape_entered(_body_id, _body, _body_shape, _area_shape):
 	if visible:
 		_set_inactive()
+		Globals.level.add_time(6)
 		next_checkpoint.set_active()

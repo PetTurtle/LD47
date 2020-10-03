@@ -10,7 +10,7 @@ func _ready():
 	raycast.cast_to.x = fire_range
 
 
-func _process(delta):
+func _process(_delta):
 	if global_position.distance_to(player.global_position) <= fire_range:
 		turret.look_at(player.global_position)
 		if turret.can_fire() and raycast.get_collider() == player:

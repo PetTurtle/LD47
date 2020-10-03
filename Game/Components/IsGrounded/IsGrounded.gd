@@ -2,9 +2,10 @@ extends Node2D
 
 signal fall()
 
+export(int) var radius: int = 2
+
 onready var tile_map = Globals.destructible_tile_map.tile_map
 
-var radius: int = 2
 var horizontal := Vector2(radius, 0)
 var vertical := Vector2(0, radius)
 

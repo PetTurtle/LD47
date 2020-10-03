@@ -3,12 +3,11 @@ extends KinematicBody2D
 export(float) var move_speed: float = 175
 export(float) var turn_speed: float = 2
 export(float) var move_damp: float = 0.9
-export(NodePath) var turret_path: NodePath
 
 var _velocity := Vector2.ZERO
 var _attack1_down := false
 
-onready var turret: Turret = get_node(turret_path) as Turret
+onready var turret: Turret = $Turret
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 

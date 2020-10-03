@@ -29,5 +29,11 @@ func _physics_process(delta) -> void:
 	_velocity = move_and_slide(_velocity) * move_damp
 
 
+func _kill() -> void:
+	set_process_input(false)
+	set_physics_process(false)
+	
+
 func _on_IsGrounded_fall():
+	_kill()
 	print("fell from world!")

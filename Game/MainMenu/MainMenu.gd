@@ -1,13 +1,22 @@
 extends Node2D
 
-onready var easy_button: Button = $CanvasLayer/Control/VBoxContainer/HBoxContainer2/Easy
-onready var medium_button: Button = $CanvasLayer/Control/VBoxContainer/HBoxContainer2/Medium
-onready var hard_button: Button = $CanvasLayer/Control/VBoxContainer/HBoxContainer2/Hard
+onready var easy_button: Button = $CanvasLayer/Control/VBoxContainer/Difficulty/HBoxContainer2/Easy
+onready var medium_button: Button = $CanvasLayer/Control/VBoxContainer/Difficulty/HBoxContainer2/Medium
+onready var hard_button: Button = $CanvasLayer/Control/VBoxContainer/Difficulty/HBoxContainer2/Hard
 
 func _ready():
-	easy_button.disabled = false
-	medium_button.disabled = true
-	hard_button.disabled = false
+	if Globals.difficulty == 10:
+		easy_button.disabled = true
+		medium_button.disabled = false
+		hard_button.disabled = false
+	elif Globals.difficulty == 7:
+		easy_button.disabled = false
+		medium_button.disabled = true
+		hard_button.disabled = false
+	elif Globals.difficulty == 4:
+		easy_button.disabled = false
+		medium_button.disabled = false
+		hard_button.disabled = true
 
 func _on_Button_pressed():
 	Globals.level_path = "res://Levels/Level1.tscn"

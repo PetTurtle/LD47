@@ -20,31 +20,37 @@ func _ready():
 
 func _on_Button_pressed():
 	Globals.level_path = "res://Levels/Level1.tscn"
+	Globals.levelID = 1
 	start_game()
 
 
 func _on_Button2_pressed():
 	Globals.level_path = "res://Levels/Level2.tscn"
+	Globals.levelID = 2
 	start_game()
 
 
 func _on_Button3_pressed():
 	Globals.level_path = "res://Levels/Level3.tscn"
+	Globals.levelID = 3
 	start_game()
 
 
 func _on_Button4_pressed():
 	Globals.level_path = "res://Levels/Level4.tscn"
+	Globals.levelID = 4
 	start_game()
 
 
 func _on_Button5_pressed():
 	Globals.level_path = "res://Levels/Level5.tscn"
+	Globals.levelID = 5
 	start_game()
 
 
 func _on_Button6_pressed():
 	Globals.level_path = "res://Levels/Level6.tscn"
+	Globals.levelID = 6
 	start_game()
 
 
@@ -57,6 +63,7 @@ func _on_Easy_pressed():
 	easy_button.disabled = true
 	medium_button.disabled = false
 	hard_button.disabled = false
+	Globals.difficulty_name = "Easy"
 
 
 func _on_Medium_pressed():
@@ -64,6 +71,7 @@ func _on_Medium_pressed():
 	easy_button.disabled = false
 	medium_button.disabled = true
 	hard_button.disabled = false
+	Globals.difficulty_name = "Medium"
 
 
 func _on_Hard_pressed():
@@ -71,3 +79,4 @@ func _on_Hard_pressed():
 	easy_button.disabled = false
 	medium_button.disabled = false
 	hard_button.disabled = true
+	Globals.difficulty_name = "Hard"

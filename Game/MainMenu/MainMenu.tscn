@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Fonts/Title.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/Regular.tres" type="DynamicFont" id=2]
 [ext_resource path="res://MainMenu/ButtonNormal.tres" type="StyleBox" id=3]
 [ext_resource path="res://MainMenu/ButtonPressed.tres" type="StyleBox" id=4]
 [ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=5]
-[ext_resource path="res://MainMenu/menumusic.wav" type="AudioStream" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
@@ -30,10 +29,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -125.0
-margin_top = -121.5
-margin_right = 125.0
-margin_bottom = 121.5
+margin_left = -167.0
+margin_top = -146.0
+margin_right = 167.0
+margin_bottom = 146.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -47,7 +46,7 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
-margin_right = 250.0
+margin_right = 334.0
 margin_bottom = 35.0
 custom_fonts/font = ExtResource( 1 )
 text = "Tank Rush!"
@@ -56,36 +55,92 @@ valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/Control/VBoxContainer"]
 margin_top = 42.0
-margin_right = 250.0
+margin_right = 334.0
 margin_bottom = 46.0
 
 [node name="Message" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
 margin_top = 53.0
-margin_right = 250.0
+margin_right = 334.0
 margin_bottom = 81.0
+custom_fonts/font = ExtResource( 2 )
+text = "Select Difficulty"
+align = 1
+valign = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer"]
+margin_top = 88.0
+margin_right = 334.0
+margin_bottom = 126.0
+alignment = 1
+
+[node name="Easy" type="Button" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer2"]
+margin_right = 108.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 4 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 2 )
+text = "Easy"
+
+[node name="Medium" type="Button" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer2"]
+margin_left = 112.0
+margin_right = 221.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 4 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 2 )
+text = "Medium"
+
+[node name="Hard" type="Button" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer2"]
+margin_left = 225.0
+margin_right = 334.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 4 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 2 )
+text = "Hard"
+
+[node name="Message2" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
+margin_top = 133.0
+margin_right = 334.0
+margin_bottom = 161.0
 custom_fonts/font = ExtResource( 2 )
 text = "Select Level"
 align = 1
 valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer"]
-margin_top = 88.0
-margin_right = 250.0
-margin_bottom = 243.0
+margin_top = 168.0
+margin_right = 334.0
+margin_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer"]
-margin_right = 250.0
-margin_bottom = 155.0
+margin_right = 334.0
+margin_bottom = 124.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 3
 
 [node name="Button" type="Button" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer"]
-margin_right = 80.0
-margin_bottom = 75.0
+margin_right = 108.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/hover = SubResource( 1 )
@@ -97,9 +152,9 @@ custom_fonts/font = ExtResource( 2 )
 text = "1"
 
 [node name="Button2" type="Button" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer"]
-margin_left = 84.0
-margin_right = 164.0
-margin_bottom = 75.0
+margin_left = 112.0
+margin_right = 220.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/hover = SubResource( 1 )
@@ -111,9 +166,9 @@ custom_fonts/font = ExtResource( 2 )
 text = "2"
 
 [node name="Button3" type="Button" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer"]
-margin_left = 168.0
-margin_right = 248.0
-margin_bottom = 75.0
+margin_left = 224.0
+margin_right = 332.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/hover = SubResource( 1 )
@@ -125,9 +180,9 @@ custom_fonts/font = ExtResource( 2 )
 text = "3"
 
 [node name="Button4" type="Button" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer"]
-margin_top = 79.0
-margin_right = 80.0
-margin_bottom = 154.0
+margin_top = 64.0
+margin_right = 108.0
+margin_bottom = 124.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/hover = SubResource( 1 )
@@ -139,10 +194,10 @@ custom_fonts/font = ExtResource( 2 )
 text = "4"
 
 [node name="Button5" type="Button" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer"]
-margin_left = 84.0
-margin_top = 79.0
-margin_right = 164.0
-margin_bottom = 154.0
+margin_left = 112.0
+margin_top = 64.0
+margin_right = 220.0
+margin_bottom = 124.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/hover = SubResource( 1 )
@@ -154,10 +209,10 @@ custom_fonts/font = ExtResource( 2 )
 text = "5"
 
 [node name="Button6" type="Button" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer"]
-margin_left = 168.0
-margin_top = 79.0
-margin_right = 248.0
-margin_bottom = 154.0
+margin_left = 224.0
+margin_top = 64.0
+margin_right = 332.0
+margin_bottom = 124.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/hover = SubResource( 1 )
@@ -167,14 +222,12 @@ custom_styles/disabled = ExtResource( 4 )
 custom_styles/normal = ExtResource( 3 )
 custom_fonts/font = ExtResource( 2 )
 text = "6"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-autoplay = true
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer2/Easy" to="." method="_on_Easy_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer2/Medium" to="." method="_on_Medium_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer2/Hard" to="." method="_on_Hard_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer/Button3" to="." method="_on_Button3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer/Button4" to="." method="_on_Button4_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer/Button5" to="." method="_on_Button5_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer/Button6" to="." method="_on_Button6_pressed"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

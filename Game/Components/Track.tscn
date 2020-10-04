@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.990909 ), 0.0, 0.0, 0, 0, Vector2( 0.75, 0.572727 ), -0.463203, -0.463203, 0, 0, Vector2( 1, 0.0090909 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.17037 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0.819608 )
+
+[node name="Track1" type="CPUParticles2D"]
+show_behind_parent = true
+position = Vector2( 0.235968, -2.18271 )
+amount = 30
+speed_scale = 2.0
+randomness = 0.4
+lifetime_randomness = 0.4
+local_coords = false
+gravity = Vector2( 0, 0 )
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )

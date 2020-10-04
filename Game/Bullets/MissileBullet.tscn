@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Bullet/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://Bullets/Textures/Missile.png" type="Texture" id=2]
@@ -14,8 +14,15 @@ radius = 1.01816
 [sub_resource type="CircleShape2D" id=2]
 radius = 8.80698
 
+[sub_resource type="Curve" id=3]
+max_value = 1.5
+_data = [ Vector2( 0, 1.47273 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0136364 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 0.976563, 0.136495, 0.0495911, 1, 0.886719, 0.647125, 0.0796661, 1 )
+
 [node name="MissileBullet" type="Area2D"]
-scale = Vector2( 0.600004, 0.600004 )
+scale = Vector2( 0.900001, 0.900001 )
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 1 )
@@ -51,6 +58,23 @@ stream = ExtResource( 6 )
 script = ExtResource( 5 )
 
 [node name="ExplodePlayer" parent="." instance=ExtResource( 7 )]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2( -1.86807, -0.09832 )
+amount = 50
+lifetime = 0.5
+speed_scale = 3.0
+randomness = 0.4
+lifetime_randomness = 0.4
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 0.5
+gravity = Vector2( 0, 0 )
+angle = 45.0
+angle_random = 1.0
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 4 )
 [connection signal="body_shape_entered" from="." to="." method="_on_Bullet_body_shape_entered"]
 [connection signal="timeout" from="DeleteTimer" to="." method="_on_DeleteTimer_timeout"]
 [connection signal="animation_finished" from="ExplodePlayer" to="." method="_on_ExplodePlayer_animation_finished"]

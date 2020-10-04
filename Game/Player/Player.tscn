@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Components/IsGrounded/IsGrounded.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Components/Sprite3D/Sprite3D.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Resources/TankCollisionShape.tres" type="Shape2D" id=6]
+[ext_resource path="res://Components/Track.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Falling"
@@ -33,6 +34,13 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 0.0, 360.0 ]
 }
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0.990909 ), 0.0, 0.0, 0, 0, Vector2( 0.75, 0.572727 ), -0.463203, -0.463203, 0, 0, Vector2( 1, 0.0090909 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.17037 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0.819608 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 9
@@ -64,5 +72,19 @@ radius = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Falling = SubResource( 1 )
+
+[node name="Track1" parent="." instance=ExtResource( 7 )]
+
+[node name="Track2" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2( 0.235969, 2.2417 )
+amount = 30
+speed_scale = 2.0
+randomness = 0.15
+lifetime_randomness = 0.15
+local_coords = false
+gravity = Vector2( 0, 0 )
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
 [connection signal="fall" from="IsGrounded" to="." method="_on_IsGrounded_fall"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

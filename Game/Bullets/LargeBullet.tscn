@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Bullet/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://Bullets/Textures/LargerCannon.png" type="Texture" id=2]
@@ -9,8 +9,15 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 3.2915
 
+[sub_resource type="Curve" id=2]
+max_value = 1.5
+_data = [ Vector2( 0, 1.40455 ), 0.0, 0.0, 0, 0, Vector2( 0.995327, 0.118182 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 0.980469, 0.288444, 0.0765991, 1, 0.902344, 0.714677, 0.0740204, 1 )
+
 [node name="LargeBullet" type="Area2D"]
-scale = Vector2( 0.600004, 0.600004 )
+scale = Vector2( 0.900001, 0.900001 )
 collision_layer = 0
 collision_mask = 24
 script = ExtResource( 1 )
@@ -33,6 +40,22 @@ stream = ExtResource( 4 )
 script = ExtResource( 3 )
 
 [node name="ExplodePlayer" parent="." instance=ExtResource( 5 )]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+amount = 25
+lifetime = 2.0
+speed_scale = 2.0
+randomness = 0.2
+lifetime_randomness = 0.2
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 3.0
+gravity = Vector2( 0, 0 )
+angle = 6.5
+angle_random = 1.0
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
 [connection signal="body_shape_entered" from="." to="." method="_on_Bullet_body_shape_entered"]
 [connection signal="timeout" from="DeleteTimer" to="." method="_on_DeleteTimer_timeout"]
 [connection signal="animation_finished" from="ExplodePlayer" to="." method="_on_ExplodePlayer_animation_finished"]

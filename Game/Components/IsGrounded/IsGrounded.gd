@@ -2,7 +2,7 @@ extends Node2D
 
 signal fall()
 
-export(int) var radius: int = 2
+export(int) var radius: int = 1
 
 onready var tile_map = Globals.destructible_tile_map.tile_map
 

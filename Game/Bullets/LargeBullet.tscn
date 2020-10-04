@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Bullet/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://Bullets/Textures/LargerCannon.png" type="Texture" id=2]
+[ext_resource path="res://Components/RanPitchAudio2D.gd" type="Script" id=3]
+[ext_resource path="res://SoundEffects/explosion3.wav" type="AudioStream" id=4]
+[ext_resource path="res://Bullets/Resources/ExplodePlayer.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 3.2915
 
 [node name="LargeBullet" type="Area2D"]
+scale = Vector2( 0.600004, 0.600004 )
 collision_layer = 0
 collision_mask = 24
 script = ExtResource( 1 )
@@ -23,5 +27,12 @@ shape = SubResource( 1 )
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="RanPitchAudio2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+script = ExtResource( 3 )
+
+[node name="ExplodePlayer" parent="." instance=ExtResource( 5 )]
 [connection signal="body_shape_entered" from="." to="." method="_on_Bullet_body_shape_entered"]
 [connection signal="timeout" from="DeleteTimer" to="." method="_on_DeleteTimer_timeout"]
+[connection signal="animation_finished" from="ExplodePlayer" to="." method="_on_ExplodePlayer_animation_finished"]

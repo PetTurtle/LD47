@@ -10,6 +10,7 @@ var curr_shot_point_id: int = 0
 
 onready var bullet_prefab = load(bullet_path)
 onready var reload_timer: Timer = $ReloadTimer
+onready var audio: RanPitchAudio2D = $RanPitchAudio2D
 
 func _ready():
 	for path in shot_point_paths:
@@ -24,7 +25,8 @@ func fire() -> void:
 	bullet.rotation = global_rotation
 	bullet.position = to_global(shot_points[curr_shot_point_id].position)
 	curr_shot_point_id = (curr_shot_point_id + 1) % shot_points.size()
-
+	
+	audio.play_rand()
 	reload_timer.start(reload_time)
 
 func can_fire() -> bool:

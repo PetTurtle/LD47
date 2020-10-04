@@ -5,6 +5,7 @@ export(NodePath) var next_checkpoint_path: NodePath
 
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var next_checkpoint = get_node(next_checkpoint_path)
+onready var audio: RanPitchAudio2D = $RanPitchAudio2D
 
 
 func _ready():
@@ -29,3 +30,4 @@ func _on_Checkpoint_body_shape_entered(_body_id, _body, _body_shape, _area_shape
 		_set_inactive()
 		Globals.level.add_time(8)
 		next_checkpoint.set_active()
+		audio.play_rand()

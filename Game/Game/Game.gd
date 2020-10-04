@@ -25,7 +25,7 @@ func _ready():
 	count_down_timer.start(1)
 
 
-func add_time(amount: int) -> void:
+func add_time(_amount: int) -> void:
 	time_left = start_time
 	total_score += 1
 	update_time_change()

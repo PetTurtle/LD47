@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/beepSound.wav-3289c49d1cf6990f127b876465e39e6b.sample"
+path="res://.import/beepSound.wav-0b94c99e7c6c2dae4611d8219e33209c.sample"
 
 [deps]
 
-source_file="res://beepSound.wav"
-dest_files=[ "res://.import/beepSound.wav-3289c49d1cf6990f127b876465e39e6b.sample" ]
+source_file="res://SoundEffects/beepSound.wav"
+dest_files=[ "res://.import/beepSound.wav-0b94c99e7c6c2dae4611d8219e33209c.sample" ]
 
 [params]
 

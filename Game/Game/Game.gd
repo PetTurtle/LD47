@@ -13,6 +13,8 @@ onready var timer_label: Label = get_node(timer_label_path)
 onready var count_down_timer: Timer = $CountDownTimer
 onready var loss_panel: Panel = $CanvasLayer/LossPanel
 onready var timer_animation: AnimationPlayer = $TimerAnimation
+onready var beep_audio: AudioStreamPlayer = $BeepAudio
+onready var gameover_audio: RanPitchAudio = $BeepAudio
 
 
 func _init():
@@ -38,6 +40,7 @@ func update_time_change() -> void:
 
 
 func end_game() -> void:
+	gameover_audio.play_rand()
 	count_down_timer.stop()
 	loss_panel.visible = true
 
@@ -56,6 +59,9 @@ func _on_CountDownTimer_timeout():
 	
 	if time_left <= 8:
 		timer_animation.play("Pulse")
+		if time_left > 0:
+			beep_audio.pitch_scale = 0.7 + (0.1 * time_left)
+		beep_audio.play()
 	else:
 		timer_animation.stop(true)
 	

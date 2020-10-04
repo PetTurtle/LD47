@@ -9,6 +9,7 @@ var _attack1_down := false
 
 onready var turret: Turret = $Turret
 onready var animation_player: AnimationPlayer = $AnimationPlayer
+onready var fall_audio: RanPitchAudio2D = $RanPitchAudio2D
 
 
 func _ready():
@@ -44,6 +45,7 @@ func _kill() -> void:
 func _on_IsGrounded_fall():
 	_kill()
 	animation_player.play("Falling")
+	fall_audio.play_rand()
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):

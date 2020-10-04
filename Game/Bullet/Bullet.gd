@@ -35,6 +35,8 @@ func _on_Bullet_body_shape_entered(_body_id, body, _body_shape, _area_shape):
 	if !explode():
 		if body is RigidBody2D or body is KinematicBody2D:
 			Globals.destructible_tile_map.create_explosion(body.position, explosion_size)
+			if body.has_method("_on_IsGrounded_fall"):
+				body._on_IsGrounded_fall()
 		else:
 			Globals.destructible_tile_map.create_explosion(position, explosion_size)
 		explode()

@@ -26,7 +26,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 7.68864
+radius = 10.6534
 
 [node name="Enemy" type="RigidBody2D"]
 scale = Vector2( 0.600004, 0.600004 )
@@ -56,7 +56,7 @@ anims/fall = SubResource( 1 )
 [node name="Pathfinder" parent="." instance=ExtResource( 5 )]
 follow_player = true
 follow_distance = 120.0
-follow_speed = 35.0
+follow_speed = 45.0
 
 [node name="ExplodeOnImpact" parent="." instance=ExtResource( 7 )]
 collision_layer = 17
@@ -79,6 +79,7 @@ position = Vector2( -2.03523, 0.0294957 )
 
 [node name="Track2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 0.112093, 1.93613 )
+[connection signal="fell" from="." to="ExplodeOnImpact" method="_on_Enemy_fell"]
 [connection signal="fell" from="." to="Pathfinder" method="_on_Enemy_fell"]
 [connection signal="spawned" from="." to="Pathfinder" method="_on_Enemy_spawned"]
 [connection signal="fall" from="IsGrounded" to="." method="_on_IsGrounded_fall"]

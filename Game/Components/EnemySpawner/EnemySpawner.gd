@@ -8,6 +8,7 @@ var parachute_prefab := load("res://Components/Parachute/Parachute.tscn")
 onready var spawn_timer: Timer = $SpawnTimer
 
 func _ready():
+	spawn_timer.wait_time = Globals.difficulty
 	for path in enemy_prefabs_paths:
 		enemy_prefabs.append(load(path))
 

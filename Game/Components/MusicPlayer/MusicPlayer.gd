@@ -11,9 +11,9 @@ func _input(event):
 		pause = !pause
 		self.playing = !self.playing
 	elif event.is_action_pressed("music_up"):
-		volume_db += 0.25
+		volume_db += 0.5
 	elif event.is_action_pressed("music_down"):
-		volume_db -= 0.25
+		volume_db -= 0.5
 
 func _on_MusicPlayer_finished():
 	if !pause:

@@ -6,17 +6,20 @@ onready var hard_button: Button = $CanvasLayer/Control/VBoxContainer/Difficulty/
 
 func _ready():
 	if Globals.difficulty == 10:
-		easy_button.disabled = true
-		medium_button.disabled = false
-		hard_button.disabled = false
+		easy_button.pressed = true
+		medium_button.pressed = false
+		hard_button.pressed = false
+		Globals.difficulty_name = "Easy"
 	elif Globals.difficulty == 7:
-		easy_button.disabled = false
-		medium_button.disabled = true
-		hard_button.disabled = false
+		easy_button.pressed = false
+		medium_button.pressed = true
+		hard_button.pressed = false
+		Globals.difficulty_name = "Medium"
 	elif Globals.difficulty == 4:
-		easy_button.disabled = false
-		medium_button.disabled = false
-		hard_button.disabled = true
+		easy_button.pressed = false
+		medium_button.pressed = false
+		hard_button.pressed = true
+		Globals.difficulty_name = "Hard"
 
 func _on_Button_pressed():
 	Globals.level_path = "res://Levels/Level1.tscn"
@@ -60,23 +63,27 @@ func start_game() -> void:
 
 func _on_Easy_pressed():
 	Globals.difficulty = 10
-	easy_button.disabled = true
-	medium_button.disabled = false
-	hard_button.disabled = false
+	#easy_button.pressed = true
+	medium_button.pressed = false
+	hard_button.pressed = false
 	Globals.difficulty_name = "Easy"
 
 
 func _on_Medium_pressed():
 	Globals.difficulty = 7
-	easy_button.disabled = false
-	medium_button.disabled = true
-	hard_button.disabled = false
+	easy_button.pressed = false
+	#medium_button.pressed = true
+	hard_button.pressed = false
 	Globals.difficulty_name = "Medium"
 
 
 func _on_Hard_pressed():
 	Globals.difficulty = 4
-	easy_button.disabled = false
-	medium_button.disabled = false
-	hard_button.disabled = true
+	easy_button.pressed = false
+	medium_button.pressed = false
+	#hard_button.pressed = true
 	Globals.difficulty_name = "Hard"
+
+
+func _on_ButtonExit_pressed():
+	get_tree().quit()

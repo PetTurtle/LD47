@@ -26,8 +26,8 @@ tracks/0/keys = {
 collision_mask = 11
 mass = 122.72
 contact_monitor = true
-linear_damp = 50.0
-angular_damp = 50.0
+linear_damp = 15.0
+angular_damp = 15.0
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]

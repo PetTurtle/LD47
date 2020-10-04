@@ -6,7 +6,7 @@
 [ext_resource path="res://Components/IsGrounded/IsGrounded.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemy/Component/Pathfinder.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Components/Sprite3D/Sprite3D.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Turrets/EnemyBasicTurret/EnemyBasicTurret.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Turrets/MissileTurret/MissileTurret.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Enemy/Component/FireAtPlayer.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
@@ -51,15 +51,16 @@ anims/fall = SubResource( 1 )
 
 [node name="Pathfinder" parent="." instance=ExtResource( 5 )]
 
-[node name="Turret" parent="." instance=ExtResource( 7 )]
-reload_time = 4.0
-bullet_path = "res://Bullets/SlowBullet.tscn"
+[node name="MissileTurret" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1.10243, -0.118117 )
+reload_time = 8.0
+bullet_path = "res://Bullets/MissileBullet.tscn"
 shot_point_paths = [ NodePath("FirePoint") ]
 
-[node name="FireAtPlayer" parent="Turret" instance=ExtResource( 8 )]
+[node name="FireAtPlayer" parent="MissileTurret" instance=ExtResource( 8 )]
 
-[node name="FirePoint" type="Node2D" parent="Turret"]
-position = Vector2( 6.5, 0 )
+[node name="FirePoint" type="Node2D" parent="MissileTurret"]
+position = Vector2( 2.74, -0.0696635 )
 [connection signal="fell" from="." to="Pathfinder" method="_on_Enemy_fell"]
 [connection signal="spawned" from="." to="Pathfinder" method="_on_Enemy_spawned"]
 [connection signal="fall" from="IsGrounded" to="." method="_on_IsGrounded_fall"]

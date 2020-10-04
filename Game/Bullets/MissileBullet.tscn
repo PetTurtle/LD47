@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Bullet/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://Bullets/Textures/Missile.png" type="Texture" id=2]
+[ext_resource path="res://Enemy/Component/ExplodeOnImpact.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemy/Component/Pathfinder.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1.01816
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 8.80698
+
+[node name="MissileBullet" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 1 )
+move_speed = 25.0
+explosion_size = 0
+delete_time = 2.5
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="DeleteTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="ExplodeOnImpact" parent="." instance=ExtResource( 3 )]
+collision_layer = 2
+explode_on_bullet = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplodeOnImpact"]
+shape = SubResource( 2 )
+
+[node name="Pathfinder" parent="." instance=ExtResource( 4 )]
+idle_seed = 30.0
+follow_player = true
+follow_distance = 500.0
+follow_speed = 50.0
+[connection signal="body_shape_entered" from="." to="." method="_on_Bullet_body_shape_entered"]
+[connection signal="timeout" from="DeleteTimer" to="." method="_on_DeleteTimer_timeout"]

@@ -1,14 +1,15 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Turret/Turret.gd" type="Script" id=1]
-[ext_resource path="res://Turret/BasicTurret.png" type="Texture" id=2]
+[ext_resource path="res://Turrets/Textures/WideTurret.png" type="Texture" id=2]
 [ext_resource path="res://Components/Sprite3D/Sprite3D.tscn" type="PackedScene" id=3]
 
 [node name="Turret" type="Node2D"]
 script = ExtResource( 1 )
+reload_time = 6.0
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 2.5, 0 )
+position = Vector2( 1.58562, 0.0884886 )
 texture = ExtResource( 2 )
 
 [node name="Sprite3D" parent="Sprite" instance=ExtResource( 3 )]

@@ -14,6 +14,13 @@ texture = ExtResource( 2 )
 [node name="Sprite3D" parent="Sprite" instance=ExtResource( 3 )]
 modulate = Color( 0.65098, 0.65098, 0.65098, 1 )
 
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 2.5, 0 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3D" parent="Sprite2" instance=ExtResource( 3 )]
+modulate = Color( 0.65098, 0.65098, 0.65098, 1 )
+
 [node name="ReloadTimer" type="Timer" parent="."]
 process_mode = 0
 wait_time = 0.5

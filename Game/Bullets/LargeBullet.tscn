@@ -1,15 +1,17 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Bullet/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://Bullets/Textures/Cannonball.png" type="Texture" id=2]
+[ext_resource path="res://Bullets/Textures/LargerCannon.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 1.64004
+radius = 3.2915
 
-[node name="Bullet" type="Area2D"]
-collision_layer = 2
+[node name="LargeBullet" type="Area2D"]
+collision_layer = 0
+collision_mask = 24
 script = ExtResource( 1 )
-explosion_size = 1
+move_speed = 30.0
+delete_time = 1.5
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

@@ -1,7 +1,6 @@
 extends Node2D
 
 
-
 func _on_Button_pressed():
 	Globals.level_path = "res://Levels/Level1.tscn"
 	start_game()
@@ -34,3 +33,7 @@ func _on_Button6_pressed():
 
 func start_game() -> void:
 	var _ok = get_tree().change_scene("res://Game/Game.tscn");
+
+
+func _on_AudioStreamPlayer_finished():
+	$AudioStreamPlayer.play()

@@ -18,8 +18,8 @@ colors = PoolColorArray( 0.980469, 0.288444, 0.0765991, 1, 0.902344, 0.714677, 0
 
 [node name="LargeBullet" type="Area2D"]
 scale = Vector2( 0.900001, 0.900001 )
-collision_layer = 0
-collision_mask = 24
+collision_layer = 2
+collision_mask = 56
 script = ExtResource( 1 )
 move_speed = 30.0
 delete_time = 1.5

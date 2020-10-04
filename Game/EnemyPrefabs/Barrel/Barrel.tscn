@@ -51,6 +51,8 @@ shape = SubResource( 1 )
 anims/fall = SubResource( 2 )
 
 [node name="ExplodeOnImpact" parent="." instance=ExtResource( 2 )]
+collision_layer = 32
+collision_mask = 2147483658
 explosion_radius = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplodeOnImpact"]

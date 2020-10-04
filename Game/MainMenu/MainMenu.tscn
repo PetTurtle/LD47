@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fonts/Title.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/Regular.tres" type="DynamicFont" id=2]
 [ext_resource path="res://MainMenu/ButtonNormal.tres" type="StyleBox" id=3]
 [ext_resource path="res://MainMenu/ButtonPressed.tres" type="StyleBox" id=4]
 [ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=5]
+[ext_resource path="res://MainMenu/menumusic.wav" type="AudioStream" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
@@ -166,9 +167,14 @@ custom_styles/disabled = ExtResource( 4 )
 custom_styles/normal = ExtResource( 3 )
 custom_fonts/font = ExtResource( 2 )
 text = "6"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer/Button3" to="." method="_on_Button3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer/Button4" to="." method="_on_Button4_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer/Button5" to="." method="_on_Button5_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer/GridContainer/Button6" to="." method="_on_Button6_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

@@ -19,6 +19,7 @@ colors = PoolColorArray( 0.988281, 0.450409, 0.0579071, 1, 1, 0.867188, 0, 1 )
 [node name="Bullet" type="Area2D"]
 scale = Vector2( 0.600004, 0.600004 )
 collision_layer = 2
+collision_mask = 33
 script = ExtResource( 1 )
 explosion_size = 1
 

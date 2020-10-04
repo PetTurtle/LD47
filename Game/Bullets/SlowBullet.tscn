@@ -18,8 +18,8 @@ colors = PoolColorArray( 0.972656, 0.200866, 0.0493927, 1, 0.964844, 0.667865, 0
 
 [node name="SlowBullet" type="Area2D"]
 scale = Vector2( 0.600004, 0.600004 )
-collision_layer = 2147483648
-collision_mask = 24
+collision_layer = 2147483650
+collision_mask = 2147483704
 script = ExtResource( 1 )
 move_speed = 25.0
 
